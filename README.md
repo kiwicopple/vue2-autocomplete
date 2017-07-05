@@ -1,4 +1,11 @@
+## FORK
+
+This is a fork of https://github.com/BosNaufal/vue2-autocomplete - it is designed to work with a postgrest API out of the box
+
+
 # Vue 2 Autocomplete
+
+
 Autocomplete Component For [Vue 2](http://vuejs.org). It's based on [vue-autocomplete](https://github.com/BosNaufal/vue-autocomplete)
 
 <p align="center">
@@ -59,6 +66,7 @@ var Autocomplete = require('vue2-autocomplete-js');
     url="http://localhost/proyek/goodmovie/api/api/v1/search"
     anchor="title"
     label="writer"
+    param="name_of_field_to_search"
     :on-select="getData">
   </autocomplete>
 
@@ -124,8 +132,20 @@ http://some-url.com/API/list?q=
 There are no filter and limit action inside the component. So, do it in your API logic.
 
 
-#### params (String)
-name of the search parameter to query in Ajax call. default is `q=`
+#### param (String)
+name of the search parameter to query in Ajax call. default is `q=like.*TEXT_INPUT*`
+As an example
+
+```html
+
+<autocomplete
+  url="http://api.com:/tags"
+  anchor="tag"
+  param="tag" />
+
+```
+
+If you type "hello", then this will query: `http://api.com:/tags?tag=like.*hello*`
 
 
 #### min (Number)

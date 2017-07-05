@@ -274,7 +274,7 @@
           let params = ""
           if(this.customParams) {
             Object.keys(this.customParams).forEach((key) => {
-              params += `&${key}=${this.customParams[key]}`
+              params += `&${key}=like.*${this.customParams[key]}*`
             })
           }
 
