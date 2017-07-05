@@ -274,11 +274,11 @@
           let params = ""
           if(this.customParams) {
             Object.keys(this.customParams).forEach((key) => {
-              params += `&${key}=like.*${this.customParams[key]}*`
+              params += `&${key}=${this.customParams[key]}`
             })
           }
 
-          ajax.open('GET', `${this.url}?${this.param}=${val}${params}`, true);
+          ajax.open('GET', `${this.url}?${this.param}=like.*${val}*${params}`, true);
           ajax.send();
 
           ajax.addEventListener('progress', function (data) {
